@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Annathamma Fruit Salad Design System - Fresh, Hygienic, Local */
+
+@layer base {
+  :root {
+    --background: 90 30% 99%;
+    --foreground: 150 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 15%;
+
+    --primary: 142 70% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 90 20% 95%;
+    --muted-foreground: 150 15% 40%;
+
+    --accent: 350 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 90 20% 88%;
+    --input: 90 20% 88%;
+    --ring: 142 70% 40%;
+
+    --radius: 1rem;
+
+    /* Custom brand colors */
+    --fresh-green: 142 70% 40%;
+    --leaf-green: 120 45% 35%;
+    --orange: 30 100% 50%;
+    --coral: 15 90% 60%;
+    --watermelon: 350 85% 60%;
+    --banana: 48 100% 65%;
+    --kiwi: 85 60% 50%;
+    --dragon-pink: 330 80% 70%;
+    
+    /* Gradients */
+    --gradient-fresh: linear-gradient(135deg, hsl(142 70% 40%) 0%, hsl(85 60% 50%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(30 100% 50%) 0%, hsl(350 85% 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(90 30% 99%) 0%, hsl(90 40% 96%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(142 70% 40% / 0.15);
+    --shadow-card: 0 8px 30px -4px hsl(150 30% 15% / 0.1);
+    --shadow-hover: 0 12px 40px -6px hsl(142 70% 40% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 142 70% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 90 20% 95%;
+    --sidebar-accent-foreground: 150 30% 15%;
+    --sidebar-border: 90 20% 88%;
+    --sidebar-ring: 142 70% 40%;
+  }
+
+  .dark {
+    --background: 150 30% 8%;
+    --foreground: 90 30% 95%;
+
+    --card: 150 25% 12%;
+    --card-foreground: 90 30% 95%;
+
+    --popover: 150 25% 12%;
+    --popover-foreground: 90 30% 95%;
+
+    --primary: 142 70% 50%;
+    --primary-foreground: 150 30% 8%;
+
+    --secondary: 30 100% 55%;
+    --secondary-foreground: 150 30% 8%;
+
+    --muted: 150 20% 18%;
+    --muted-foreground: 90 15% 65%;
+
+    --accent: 350 85% 65%;
+    --accent-foreground: 150 30% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 90 30% 95%;
+
+    --border: 150 20% 20%;
+    --input: 150 20% 20%;
+    --ring: 142 70% 50%;
+
+    --sidebar-background: 150 30% 8%;
+    --sidebar-foreground: 90 30% 95%;
+    --sidebar-primary: 142 70% 50%;
+    --sidebar-primary-foreground: 150 30% 8%;
+    --sidebar-accent: 150 20% 18%;
+    --sidebar-accent-foreground: 90 30% 95%;
+    --sidebar-border: 150 20% 20%;
+    --sidebar-ring: 142 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-fresh {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-fresh);
+  }
+
+  .text-gradient-sunset {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-sunset);
+  }
+
+  .bg-gradient-fresh {
+    background-image: var(--gradient-fresh);
+  }
+
+  .bg-gradient-sunset {
+    background-image: var(--gradient-sunset);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+@layer components {
+  .fruit-card {
+    @apply bg-card rounded-2xl p-6 shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
+  }
+
+  .price-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full bg-gradient-fresh text-primary-foreground font-semibold text-lg;
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-fresh text-primary-foreground font-semibold transition-all duration-300 hover:shadow-hover hover:scale-105;
+  }
+
+  .cta-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-fresh-green/10 text-fresh-green border-2 border-fresh-green font-semibold transition-all duration-300 hover:bg-fresh-green hover:text-white;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-lg md:text-xl max-w-2xl;
+  }
+}
